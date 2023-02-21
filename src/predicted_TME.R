@@ -91,7 +91,7 @@ for (u in 1:length(cancer_id)) {
         cancer_sample<- nrow(infi_mus)
         name<- paste(infi_id_vo[w],cancer_id[u],sep=":")
         name1 <-paste(file_id[j],name,sep=":")
-        result<- data.frame(signature_type="single SBS",cancer_id=cancer_id[u],cancer_sample,infi_id=infi_id_vo[w],name1,name,mus_num,initial_features=paste0(mus_id,collapse = ":"),preserved_features=cvfit.min.out3,model_type, lambda=lambda,  cor, cor_p)
+        result<- data.frame(signature_type="SBS",cancer_id=cancer_id[u],cancer_sample,infi_id=infi_id_vo[w],name1,name,mus_num,initial_features=paste0(mus_id,collapse = ":"),preserved_features=cvfit.min.out3,model_type, lambda=lambda,  cor, cor_p)
         lasso_result <- rbind(lasso_result,result)
         lasso_result <-as.data.frame(lasso_result)
         y_predicted<-as.numeric(y_predicted)
