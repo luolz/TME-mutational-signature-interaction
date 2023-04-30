@@ -27,15 +27,15 @@ colnames(newdata)
 result_interaction<-c()
 j=1
 for (j in 1:length(infi_id)) {
-  k=1
-  for (k in 1:length(mus_id)) {
-    surv_0 <-newdata[,c("sample", "OS", "OS.time", "cancer", "Age", "Gender", "Stage",infi_id[j],mus_id[k])]
-    names(surv_0)[2:3]<- c("status","time")
-    surv_0$sample<-NULL
-    surv_0$Gender<-as.numeric(surv_0$Gender)
-    surv_0$Stage <-as.numeric(surv_0$Stage)
-    i=1
-    for (i in 1:length(cancer_id)) {
+  i=1
+  for (i in 1:length(cancer_id)) {
+    k=1
+    for (k in 1:length(mus_id)) {
+      surv_0 <-newdata[,c("sample", "OS", "OS.time", "cancer", "Age", "Gender", "Stage",infi_id[j],mus_id[k])]
+      names(surv_0)[2:3]<- c("status","time")
+      surv_0$sample<-NULL
+      surv_0$Gender<-as.numeric(surv_0$Gender)
+      surv_0$Stage <-as.numeric(surv_0$Stage)
       surv <- surv_0[surv_0$cancer==cancer_id[i],]
       surv$cancer<-NULL
       surv<-na.omit(surv)
@@ -77,10 +77,10 @@ std_error <- function(x) sd(x) / sqrt(length(x))
 result_interaction_logrank <-c()
 j=1
 for (j in 1:length(infi_id)) {
-  k=1
-  for (k in 1:length(mus_id)) {
-    i=1
-    for (i in 1:length(cancer_id)) {
+  i=1
+  for (k in 1:length(cancer_id)) {
+    k=1
+    for (i in 1:length(mus_id)) {
       surv_0 <-newdata[,c("sample", "OS", "OS.time", "cancer",infi_id[j],mus_id[k])]
       names(surv_0)[2:3]<- c("status","time")
       surv_0<- surv_0[surv_0$time>0,]
