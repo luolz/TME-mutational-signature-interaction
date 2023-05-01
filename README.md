@@ -13,22 +13,7 @@ Research on the associations between mutational signatures and tumor microenviro
 - `identified_interaction_effects.R`: R script for performing statistical interaction tests to identify survival effects of immunophenotypes altered by mutational signatures.
 
 
-## Predicting TME from signatures
 
-TME scores
-
-```r
-test = data.frame(
-    SBS1 = 1
-    ..
-)
-
-source("srv/fun.R")
-
-pred_TME(test, cancer_type = "LUAD")
-
-
-```
 
 
 ## Citation
